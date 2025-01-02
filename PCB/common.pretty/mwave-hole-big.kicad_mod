@@ -1,0 +1,125 @@
+(footprint "mwave-hole-big"
+	(version 20240108)
+	(generator "pcbnew")
+	(generator_version "8.0")
+	(layer "F.Cu")
+	(property "Reference" "HOLE"
+		(at 0 -0.5 0)
+		(unlocked yes)
+		(layer "F.SilkS")
+		(hide yes)
+		(uuid "94d93201-6a4b-4cb9-a30c-637a029ebef5")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Value" "mwave-hole-big"
+		(at 0 1 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(uuid "d81c5bdd-6eda-44c8-8783-b976a956589c")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Footprint" ""
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "4814b0bd-013b-456f-8696-95ee31be69fc")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Datasheet" ""
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "f6da3493-b547-46ff-b41e-5ffcf3e62bc0")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Description" ""
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "dcf195a7-411d-4e83-9479-a877eb3f3f41")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(attr board_only exclude_from_pos_files exclude_from_bom)
+	(fp_line
+		(start -0.215 -1.6)
+		(end 0.215 -1.6)
+		(stroke
+			(width 0.1)
+			(type default)
+		)
+		(layer "Edge.Cuts")
+		(uuid "093420d0-127a-4e3a-8b3b-044cf75bbc49")
+	)
+	(fp_line
+		(start 0.215 1.6)
+		(end -0.215 1.6)
+		(stroke
+			(width 0.1)
+			(type default)
+		)
+		(layer "Edge.Cuts")
+		(uuid "04c4094b-21a3-40b2-b84d-cd62819fd5db")
+	)
+	(fp_arc
+		(start -0.215 1.6)
+		(mid -1.815 0)
+		(end -0.215 -1.6)
+		(stroke
+			(width 0.1)
+			(type default)
+		)
+		(layer "Edge.Cuts")
+		(uuid "1bb5d5ff-65b7-4eb7-845a-45848a91c724")
+	)
+	(fp_arc
+		(start 0.215 -1.6)
+		(mid 1.815 0)
+		(end 0.215 1.6)
+		(stroke
+			(width 0.1)
+			(type default)
+		)
+		(layer "Edge.Cuts")
+		(uuid "dd041f90-6ed6-4e33-8e82-f945f03de9ca")
+	)
+	(fp_text user "${REFERENCE}"
+		(at 0 2.5 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(uuid "ff0173b5-571c-4e42-9a40-681b2822212d")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+)

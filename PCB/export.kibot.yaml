@@ -1,0 +1,337 @@
+kibot:
+  version: 1
+
+preflight:
+  set_text_variables:
+    - name: GIT_TAG
+      command: git describe --tags --abbrev=0
+    - name: GIT_HASH
+      command: git rev-parse --short HEAD
+    - name: PROJ_TITLE
+      command: head -n 1 metadata.txt
+    - name: PROJ_PN
+      command: sed -n '2p' metadata.txt
+
+global:
+  # Sets the default output filename for all generated files. You likely don't have to change this.
+  output: "${PROJ_TITLE}-${GIT_TAG}-%D-%i.%x"
+
+filters:
+  - name: fix_jlc_rotation
+    comment: 'Adjust rotation'
+    type: rot_footprint
+    negative_bottom: false
+    invert_bottom: true
+    rotations:
+      - ["^SOD-323*", 180.0]
+      - ["^XKB-USB-C-16P", 180]
+    rotations_and_offsets:
+      - regex: 'choc_v1_HS'
+        angle: 0
+        offset_x: 1.1
+        offset_y: -4.85
+      - regex: 'MX_HS'
+        angle: 0
+        offset_x: 0
+        offset_y: -3.81
+
+
+  - name: only_lcsc_parts
+    comment: 'Only parts with LCSC part code'
+    type: generic
+    include_only:
+      - column: 'LCSC Part'
+        regex: '^C\d+'
+
+  - name: mechanical_fixed
+    comment: 'Exclude mechanical, but fix for reverse mount LED'
+    type: generic
+    exclude_virtual: true
+    exclude_any:
+      - column: 'Ref'
+        regex: '^TP[0-9]*'
+      - column: 'Ref'
+        regex: '^FID'
+      - column: 'Part'
+        regex: 'solder.*bridge'
+      - column: 'Part'
+        regex: 'solder.*jump'
+      - column: 'Part'
+        regex: 'test.*point'
+      - column: 'FP'
+        regex: 'test.*point'
+      - column: 'FP'
+        regex: 'fiducial'
+
+variants:
+  - name: jlc_rotated
+    comment: 'Just a place holder for the rotation filter'
+    type: kibom
+    variant: rotated
+    pre_transform: fix_jlc_rotation
+    exclude_filter: mechanical_fixed
+
+outputs:
+  - name: JLCPCB_gerbers
+    comment: Gerbers compatible with JLCPCB
+    type: gerber
+    dir: ./outputs/%D/JLCPCB/gbrs
+    options:
+      exclude_edge_layer: true
+      exclude_pads_from_silkscreen: true
+      plot_sheet_reference: false
+      plot_footprint_refs: true
+      plot_footprint_values: true
+      force_plot_invisible_refs_vals: false
+      tent_vias: true
+      use_protel_extensions: true
+      create_gerber_job_file: false
+      output: "%f.%x"
+      gerber_precision: 4.6
+      use_gerber_x2_attributes: false
+      use_gerber_net_attributes: false
+      disable_aperture_macros: true
+      line_width: 0.1
+      subtract_mask_from_silk: false
+      inner_extension_pattern: ".gl%N"
+    layers:
+      - copper
+      - F.SilkS
+      - B.SilkS
+      - F.Mask
+      - B.Mask
+      - F.Paste
+      - B.Paste
+      - Edge.Cuts
+
+  - name: JLCPCB_drill
+    comment: Drill files compatible with JLCPCB
+    type: excellon
+    dir: ./outputs/%D/JLCPCB/gbrs
+    options:
+      pth_and_npth_single_file: false
+      pth_id: '-PTH'
+      npth_id: '-NPTH'
+      metric_units: true
+      map: gerber
+      route_mode_for_oval_holes: false
+
+  - name: JLCPCB
+    comment: ZIP file for JLCPCB
+    type: compress
+    dir: ./outputs/%D/JLCPCB
+    options:
+      files:
+        - from_output: JLCPCB_gerbers
+          dest: /
+        - from_output: JLCPCB_drill
+          dest: /
+
+  - name: lcsc_position
+    comment: Pick and place position file, JLC compatible
+    type: position
+    dir: ./outputs/%D/JLCPCB
+    options:
+      variant: jlc_rotated
+      output: '${PROJ_TITLE}_cpl.%x'
+      format: CSV
+      units: millimeters
+      separate_files_for_front_and_back: false
+      columns:
+        - id: Ref
+          name: Designator
+        - Val
+        - Package
+        - id: PosX
+          name: "Mid X"
+        - id: PosY
+          name: "Mid Y"
+        - id: Rot
+          name: Rotation
+        - id: Side
+          name: Layer
+
+  - name: LCSC_bom
+    comment: LCSC only bom
+    type: bom
+    dir: ./outputs/%D/JLCPCB
+    options:
+      output: '${PROJ_TITLE}_%i_lcsc.%x'
+      exclude_filter: 'only_lcsc_parts'
+      ref_separator: ','
+      group_fields: ['Value', 'Footprint', 'LCSC Part']
+      columns:
+        - field: Value
+          name: Comment
+        - field: References
+          name: Designator
+        - field: Footprint
+          name: Footprint
+        - field: 'LCSC Part'
+          name: 'LCSC Part #'
+      csv:
+        hide_pcb_info: true
+        hide_stats_info: true
+        quote_all: true
+
+
+  - name: "interactive_bom"
+    comment: "Interactive Bill of Materials"
+    type: ibom
+    dir: ./outputs/%D/JLCPCB
+    options:
+      dnf_filter: mechanical_fixed
+      dark_mode: true
+
+  - name: Generic_gerbers
+    comment: Gerbers compatible with Generic
+    type: gerber
+    dir: ./outputs/%D/GenericPCB/gbrs
+    options: &genericpcb_gerber_options
+      exclude_edge_layer: true
+      exclude_pads_from_silkscreen: true
+      plot_sheet_reference: false
+      plot_footprint_refs: true
+      plot_footprint_values: false
+      force_plot_invisible_refs_vals: false
+      tent_vias: true
+      use_protel_extensions: false
+      create_gerber_job_file: false
+      disable_aperture_macros: true
+      gerber_precision: 4.6
+      use_gerber_x2_attributes: true
+      use_gerber_net_attributes: true
+      line_width: 0.1
+      subtract_mask_from_silk: false
+      inner_extension_pattern: '.gp%n'
+    layers:
+      # Note: a more generic approach is to use 'copper' but then the filenames
+      # are slightly different.
+      - F.Cu
+      - B.Cu
+      - In1.Cu
+      - In2.Cu
+      - In3.Cu
+      - In4.Cu
+      - In5.Cu
+      - In6.Cu
+      - F.SilkS
+      - B.SilkS
+      - F.Mask
+      - B.Mask
+      - Edge.Cuts
+      - F.Fab
+      - B.Fab
+
+  - name: Generic_drill
+    comment: Drill files compatible with Generic
+    type: excellon
+    dir: ./outputs/%D/GenericPCB/gbrs
+    options:
+      pth_and_npth_single_file: false
+      pth_id: '-PTH'
+      npth_id: '-NPTH'
+      metric_units: true
+      map: gerber
+      output: "${PROJ_TITLE}-${GIT_TAG}-%D-%i.%x"
+
+  - name: Generic_gerbers_zip
+    comment: Gerbers ZIP file for Generic
+    type: compress
+    dir: ./outputs/%D/GenericPCB/gbrs
+    options:
+      files:
+        - from_output: Generic_gerbers
+          dest: /
+        - from_output: Generic_drill
+          dest: /
+
+  - name: generic_position
+    comment: Pick and place position file compatible
+    type: position
+    dir: ./outputs/%D/GenericPCB
+    options:
+      #variant: rotated
+      output: '${PROJ_TITLE}-${GIT_TAG}-%D-cpl.%x'
+      format: CSV
+      units: millimeters
+      separate_files_for_front_and_back: false
+      columns:
+        - id: Ref
+          name: Designator
+        - Val
+        - Package
+        - id: PosX
+          name: "Mid X"
+        - id: PosY
+          name: "Mid Y"
+        - id: Rot
+          name: Rotation
+        - id: Side
+          name: Layer
+
+  - name: 'bom_generic'
+    comment: "Generic BoM"
+    type: bom
+    dir: ./outputs/%D/GenericPCB
+    options:
+      output: '${PROJ_TITLE}-${GIT_TAG}-%D-%i.%x'
+      ref_separator: ','
+      group_fields: ['Value', 'Footprint', 'LCSC Part', 'Digikey Part']
+      columns:
+        - field: Value
+          name: Value
+        - field: References
+          name: Designator
+        - field: Footprint
+          name: Footprint
+        - field: 'LCSC Part'
+          name: 'LCSC Part Number'
+        - field: 'Digikey Part'
+          name: 'Digikey Part Number'
+        - field: 'Notes'
+          name: 'Comments'
+      csv:
+        hide_pcb_info: true
+        hide_stats_info: true
+        quote_all: true
+
+  - name: Generic_zip
+    comment: ZIP file for Generic
+    type: compress
+    dir: ./outputs/%D/GenericPCB
+    options:
+      output: '${PROJ_TITLE}-${GIT_TAG}-%D.%x'
+      files:
+        - from_output: Generic_gerbers_zip
+          dest: /
+        - from_output: generic_position
+          dest: /
+        - from_output: bom_generic
+          dest: /
+
+  - name: plate_dxf
+    comment: dxf for plate
+    type: dxf
+    dir: ./outputs/%D/docs
+    options:
+      output: '${PROJ_TITLE}_plate.%x'
+      metric_units: true
+      polygon_mode: false
+      use_aux_axis_as_origin: true
+      exclude_edge_layer: false
+    layers:
+       - User.Eco2
+
+  - name: 'step'
+    comment: "STEP file for case design testing"
+    type: step
+    dir: ./outputs/%D/docs
+    options:
+      no_virtual: false
+      min_distance: 0.1
+
+  - name: "print_sch"
+    comment: "PDF - print schematic"
+    type: pdf_sch_print
+    dir: ./outputs/%D/docs
