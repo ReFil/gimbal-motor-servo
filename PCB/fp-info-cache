@@ -1,4 +1,4 @@
-23877599299960268
+23879336665231710
 Audio_Module
 Reverb_BTDR-1H
 Digital Reverberation Unit, http://www.belton.co.kr/inc/downfile.php?seq=17&file=pdf (footprint from http://www.uk-electronic.de/PDF/BTDR-1.pdf)
@@ -96459,6 +96459,13 @@ BM02B-SRSS-TB
 0
 4
 4
+common
+CONN-SMD_10P-P0.50_0.5K-1.2W-10PWB
+
+
+0
+12
+12
 common
 CONN_S2B-XH-A_JST
 
