@@ -464,14 +464,14 @@
     "pinned_symbol_libs": []
   },
   "meta": {
-    "filename": "servo-rounded.kicad_pro",
+    "filename": "servo.kicad_pro",
     "version": 1
   },
   "net_settings": {
     "classes": [
       {
         "bus_width": 12,
-        "clearance": 0.2,
+        "clearance": 0.15,
         "diff_pair_gap": 0.25,
         "diff_pair_via_gap": 0.25,
         "diff_pair_width": 0.2,
@@ -488,7 +488,7 @@
       },
       {
         "bus_width": 12,
-        "clearance": 0.2,
+        "clearance": 0.15,
         "diff_pair_gap": 0.25,
         "diff_pair_via_gap": 0.25,
         "diff_pair_width": 0.2,
@@ -505,7 +505,7 @@
       },
       {
         "bus_width": 12,
-        "clearance": 0.2,
+        "clearance": 0.15,
         "diff_pair_gap": 0.25,
         "diff_pair_via_gap": 0.25,
         "diff_pair_width": 0.2,
@@ -740,5 +740,10 @@
       "Root"
     ]
   ],
-  "text_variables": {}
+  "text_variables": {
+    "GIT_HASH": "5eaf071",
+    "GIT_TAG": "V0.1",
+    "PROJ_PN": "0",
+    "PROJ_TITLE": "2205 Gimbal Motor Driver"
+  }
 }
