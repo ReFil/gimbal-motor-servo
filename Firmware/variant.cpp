@@ -212,7 +212,7 @@ Uart Serial1( &sercom3, PIN_SERIAL1_RX, PIN_SERIAL1_TX, PAD_SERIAL1_RX, PAD_SERI
 //Uart Serial2( &sercom2, PIN_SERIAL2_RX, PIN_SERIAL2_TX, PAD_SERIAL2_RX, PAD_SERIAL2_TX ) ;
 
 
-void SERCOM0_Handler()
+void SERCOM3_Handler()
 {
   Serial1.IrqHandler();
 }

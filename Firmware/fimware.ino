@@ -21,16 +21,17 @@ BLDCMotor motor = BLDCMotor(7, 11);
 BLDCDriver6PWM driver = BLDCDriver6PWM(4, 2, 3, 5, 10, 11, 8);
 
 // instantiate the commander
-Commander command = Commander(Serial);
+Commander command = Commander(Serial1);
+
 void doMotor(char* cmd) { command.motor(&motor, cmd); }
 
 void setup() {
   // monitoring port
   Serial.begin(115200);
-
-  while(!Serial);
+  Serial1.begin(115200);
   
   SimpleFOCDebug::enable(&Serial);
+
   // initialise magnetic sensor hardware
   sensor.init(&SPI);
   motor.linkSensor(&sensor);
@@ -51,7 +52,8 @@ void setup() {
 
   // link the motor and the driver
   motor.linkDriver(&driver);
-  motor.useMonitoring(Serial);
+  motor.useMonitoring(Serial1);
+
 
   motor.motion_downsample = 5.0;
 
@@ -64,7 +66,7 @@ motor.PID_velocity.limit = 2.0;
 // Low pass filtering time constant 
 motor.LPF_velocity.Tf = 0.25;
 // angle loop PID
-motor.P_angle.P = 10.0;
+motor.P_angle.P = 5.0;
 motor.P_angle.I = 0.0;
 motor.P_angle.D = 0.0;
 motor.P_angle.output_ramp = 10000.0;
@@ -93,7 +95,7 @@ motor.voltage_limit = 5.0;
 motor.current_limit = 2.0;
 // sensor zero offset - home position 
 motor.sensor_offset = 0.0;
-  motor.useMonitoring(Serial);
+  motor.useMonitoring(Serial1);
   // init motor hardware
   if(!motor.init()){
     Serial.println("Motor init failed!");
