@@ -3135,6 +3135,341 @@
 				)
 			)
 		)
+		(symbol "ergo-pw:C-EUC0603"
+			(pin_numbers hide)
+			(pin_names
+				(offset 1.016) hide)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "C"
+				(at 1.524 0.381 0)
+				(effects
+					(font
+						(size 1.143 1.143)
+					)
+					(justify left bottom)
+				)
+			)
+			(property "Value" "C-EUC0603"
+				(at 1.524 -4.699 0)
+				(effects
+					(font
+						(size 1.143 1.143)
+					)
+					(justify left bottom)
+					(hide yes)
+				)
+			)
+			(property "Footprint" "PW:C0603"
+				(at 0.762 3.81 0)
+				(effects
+					(font
+						(size 0.508 0.508)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Notes" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Link" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_fp_filters" "*C0603*"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "C-EUC0603_1_0"
+				(polyline
+					(pts
+						(xy 0 -2.54) (xy 0 -2.032)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 0) (xy 0 -0.508)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "C-EUC0603_1_1"
+				(rectangle
+					(start -2.032 -2.032)
+					(end 2.032 -1.524)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type outline)
+					)
+				)
+				(rectangle
+					(start -2.032 -1.016)
+					(end 2.032 -0.508)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type outline)
+					)
+				)
+				(pin passive line
+					(at 0 2.54 270)
+					(length 2.54)
+					(name "1"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 0 -5.08 90)
+					(length 2.54)
+					(name "2"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+				)
+			)
+		)
+		(symbol "ergo-pw:Crystal"
+			(pin_numbers hide)
+			(pin_names
+				(offset 1.016) hide)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "Y"
+				(at 0 3.81 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "Crystal"
+				(at 0 -3.81 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "~"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "Two pin crystal"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "quartz ceramic resonator oscillator"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_fp_filters" "Crystal*"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "Crystal_0_1"
+				(rectangle
+					(start -1.143 2.54)
+					(end 1.143 -2.54)
+					(stroke
+						(width 0.3048)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -2.54 0) (xy -1.905 0)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -1.905 -1.27) (xy -1.905 1.27)
+					)
+					(stroke
+						(width 0.508)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 1.905 -1.27) (xy 1.905 1.27)
+					)
+					(stroke
+						(width 0.508)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 2.54 0) (xy 1.905 0)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "Crystal_1_1"
+				(pin passive line
+					(at -3.81 0 0)
+					(length 1.27)
+					(name "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 3.81 0 180)
+					(length 1.27)
+					(name "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+		)
 		(symbol "ergo-pw:GND"
 			(power)
 			(pin_numbers hide)
@@ -4610,6 +4945,12 @@
 		(uuid "35b11955-dc89-4c51-a4ae-bcefd4c89cff")
 	)
 	(junction
+		(at 21.59 55.88)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "6507a541-c7e2-4128-bbcd-78d0ae956a81")
+	)
+	(junction
 		(at 58.42 38.1)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -4626,6 +4967,12 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "79b2ddf6-3194-4c4a-b338-ae8515d342e0")
+	)
+	(junction
+		(at 31.75 52.07)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "80763fdb-6554-41b9-8a28-17215cb5ddf1")
 	)
 	(junction
 		(at 231.14 88.9)
@@ -4676,6 +5023,12 @@
 		(uuid "f17bbc7f-531c-4b1c-9cb8-46af7e9a030d")
 	)
 	(junction
+		(at 31.75 59.69)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "fb38cab3-faef-4527-ac85-332e02d610ba")
+	)
+	(junction
 		(at 260.35 88.9)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -4694,6 +5047,16 @@
 			(type default)
 		)
 		(uuid "05b3853b-933e-4efe-ba73-10414b3d85bf")
+	)
+	(wire
+		(pts
+			(xy 35.56 54.61) (xy 43.18 54.61)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0734a436-f412-4d53-8ad0-637fcf85ab0e")
 	)
 	(wire
 		(pts
@@ -4724,6 +5087,16 @@
 			(type default)
 		)
 		(uuid "15983957-f4cd-442f-8438-07698ca02bc0")
+	)
+	(wire
+		(pts
+			(xy 43.18 57.15) (xy 35.56 57.15)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "1debe262-6257-40c2-a16f-302bf7f8ecbe")
 	)
 	(wire
 		(pts
@@ -4767,6 +5140,16 @@
 	)
 	(wire
 		(pts
+			(xy 35.56 59.69) (xy 31.75 59.69)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "461a1ddf-8f48-4b05-a4c2-06b3012621aa")
+	)
+	(wire
+		(pts
 			(xy 217.17 147.32) (xy 227.33 147.32)
 		)
 		(stroke
@@ -4807,6 +5190,16 @@
 	)
 	(wire
 		(pts
+			(xy 31.75 52.07) (xy 35.56 52.07)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "60743944-724e-4f3c-9671-b00871f6a9ac")
+	)
+	(wire
+		(pts
 			(xy 231.14 86.36) (xy 231.14 88.9)
 		)
 		(stroke
@@ -4814,6 +5207,16 @@
 			(type default)
 		)
 		(uuid "6376fe63-bd19-4770-a5fc-1ae5a2b439cd")
+	)
+	(wire
+		(pts
+			(xy 21.59 52.07) (xy 21.59 55.88)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "68b5eeed-863a-44b9-9e92-378bc9c9c39b")
 	)
 	(wire
 		(pts
@@ -4857,6 +5260,16 @@
 	)
 	(wire
 		(pts
+			(xy 35.56 52.07) (xy 35.56 54.61)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "78f319f4-a14d-45dc-8d7d-3e0b13f3507c")
+	)
+	(wire
+		(pts
 			(xy 34.29 133.35) (xy 43.18 133.35)
 		)
 		(stroke
@@ -4867,6 +5280,16 @@
 	)
 	(wire
 		(pts
+			(xy 29.21 52.07) (xy 31.75 52.07)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "80a9f552-3f40-4a08-b874-07bf6a51b0ab")
+	)
+	(wire
+		(pts
 			(xy 34.29 130.81) (xy 35.56 130.81)
 		)
 		(stroke
@@ -4874,6 +5297,16 @@
 			(type default)
 		)
 		(uuid "88049718-822d-4f8e-881e-74f0f5da4419")
+	)
+	(wire
+		(pts
+			(xy 21.59 55.88) (xy 21.59 59.69)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "896ba2dd-de5c-4373-89e3-f40ac87159d3")
 	)
 	(wire
 		(pts
@@ -5047,6 +5480,16 @@
 	)
 	(wire
 		(pts
+			(xy 31.75 59.69) (xy 29.21 59.69)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "dcc0c4c9-4de3-433e-9cdc-ccaf4e4c9356")
+	)
+	(wire
+		(pts
 			(xy 217.17 142.24) (xy 243.84 142.24)
 		)
 		(stroke
@@ -5084,6 +5527,16 @@
 			(type default)
 		)
 		(uuid "f0c7b8ce-f664-44dc-9d1c-00bcb20324e9")
+	)
+	(wire
+		(pts
+			(xy 35.56 57.15) (xy 35.56 59.69)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f42abfa4-1feb-43de-957c-6d905c3022fd")
 	)
 	(wire
 		(pts
@@ -7511,6 +7964,94 @@
 		)
 	)
 	(symbol
+		(lib_id "ergo-pw:C-EUC0603")
+		(at 26.67 59.69 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "6f43ddb9-58c3-47dd-bd01-204def2d32cd")
+		(property "Reference" "C9"
+			(at 25.4 55.88 90)
+			(effects
+				(font
+					(size 1.143 1.143)
+				)
+			)
+		)
+		(property "Value" "12pF"
+			(at 21.971 61.214 0)
+			(effects
+				(font
+					(size 1.143 1.143)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "Footprint" "common:C_0402_1005Metric"
+			(at 30.48 60.452 0)
+			(effects
+				(font
+					(size 0.508 0.508)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 26.67 59.69 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 26.67 59.69 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC Part" "C1547"
+			(at 26.67 59.69 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digikey Part" ""
+			(at 26.67 59.69 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "c8689f91-0620-4c47-a89b-08066e0b6197")
+		)
+		(pin "2"
+			(uuid "6f23616a-c7f6-4a18-a7d5-236a77bfe09e")
+		)
+		(instances
+			(project "servo"
+				(path "/a242284f-175c-4ddb-a508-42300ec13d0d"
+					(reference "C9")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:GND")
 		(at 120.65 21.59 180)
 		(unit 1)
@@ -8969,6 +9510,160 @@
 		)
 	)
 	(symbol
+		(lib_id "ergo-pw:GND")
+		(at 21.59 55.88 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "b1a04678-be7a-482c-959c-8a3ff6ce83d2")
+		(property "Reference" "#PWR046"
+			(at 15.24 55.88 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 17.1958 56.007 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Footprint" ""
+			(at 21.59 55.88 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 21.59 55.88 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 21.59 55.88 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "23c71499-6239-4080-8446-0f5a219bc2bc")
+		)
+		(instances
+			(project "servo"
+				(path "/a242284f-175c-4ddb-a508-42300ec13d0d"
+					(reference "#PWR046")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "ergo-pw:C-EUC0603")
+		(at 24.13 52.07 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "b4f6c779-0552-4265-8026-0eb7d1b1720b")
+		(property "Reference" "C8"
+			(at 25.4 48.26 90)
+			(effects
+				(font
+					(size 1.143 1.143)
+				)
+			)
+		)
+		(property "Value" "12pF"
+			(at 28.829 50.546 0)
+			(effects
+				(font
+					(size 1.143 1.143)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "Footprint" "common:C_0402_1005Metric"
+			(at 20.32 51.308 0)
+			(effects
+				(font
+					(size 0.508 0.508)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 24.13 52.07 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 24.13 52.07 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC Part" "C1547"
+			(at 24.13 52.07 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digikey Part" ""
+			(at 24.13 52.07 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "d4f589b8-5187-49b3-aca3-ef3dd906de97")
+		)
+		(pin "2"
+			(uuid "47fedffb-7511-42c6-9307-faae1aac2401")
+		)
+		(instances
+			(project "servo"
+				(path "/a242284f-175c-4ddb-a508-42300ec13d0d"
+					(reference "C8")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:GND")
 		(at 147.32 158.75 0)
 		(unit 1)
@@ -9205,6 +9900,94 @@
 			(project "servo"
 				(path "/a242284f-175c-4ddb-a508-42300ec13d0d"
 					(reference "#PWR019")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "ergo-pw:Crystal")
+		(at 31.75 55.88 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "bae52a7b-93c8-4c7f-a4fc-a4e7c1c8ddf9")
+		(property "Reference" "Y1"
+			(at 35.56 54.61 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "32.768kHz"
+			(at 35.56 57.15 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" "common:Crystal_SMD_2012-2Pin_2.0x1.2mm"
+			(at 31.75 55.88 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 31.75 55.88 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 31.75 55.88 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC Part" "C97602"
+			(at 31.75 55.88 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digikey Part" "XC2743TR-ND"
+			(at 31.75 55.88 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "a4120b02-ccf6-4c60-8292-de555e9b3d83")
+		)
+		(pin "2"
+			(uuid "3e28dc98-9ae4-43cc-aeb0-86e8657a5c56")
+		)
+		(instances
+			(project "servo"
+				(path "/a242284f-175c-4ddb-a508-42300ec13d0d"
+					(reference "Y1")
 					(unit 1)
 				)
 			)
